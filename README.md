@@ -1,4 +1,6 @@
-# ⚠️UNDER CONSTRUCTION! img-to-ascii
+# img-to-ascii
+
+## ⚠️UNDER CONSTRUCTION
 
 This is a web application I created for converting images into colourful ASCII art using JavaScript. It allows users to select different ranges of resolution to customize the fidelity of their output.
 
