@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Img to Ascii Converter</title>
+  </head>
+  <body>
+    <div class="container">
+      <label for="inputTag">
+        <h1>Select Image</h1>
+        <br />
+        <h2 id="imageName">none</h2>
+        <input type="file" id="inputTag" accept="image/*" />
+      </label>
+      <button id="convertButton" disabled="true">Convert!</button>
+      <div class="result">
+        <p>.....</p>
+        <p>22222</p>
+        <p>22222</p>
+        <p>22222</p>
+      </div>
+      <img id="test" src="" />
+      <canvas id="myCanvas" style="display: none"></canvas>
+    </div>
+    <footer>&copy;Andrew Gardner 2024</footer>
+  </body>
+  <script src="app.js"></script>
+</html>
