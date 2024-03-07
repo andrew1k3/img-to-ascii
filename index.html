@@ -3,28 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="reset.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
     <title>Img to Ascii Converter</title>
   </head>
   <body>
-    <div class="container">
-      <label for="inputTag">
-        <h1>Select Image</h1>
-        <br />
-        <h2 id="imageName">none</h2>
-        <input type="file" id="inputTag" accept="image/*" />
-      </label>
-      <button id="convertButton" disabled="true">Convert!</button>
-      <div class="result">
-        <p>.....</p>
-        <p>22222</p>
-        <p>22222</p>
-        <p>22222</p>
+    <section>
+      <article>
+        <h1><p>i</p><p>m</p><p>g</p><p>-</p><p>t</p><p>o</p><p>-</p><p>a</p><p>s</p><p>c</p><p>i</p><p>i</p></h1>
+        <label>
+          <h2>select-image</h2>
+          <br />
+          <h3 id="imageText">none</h3>
+          <input type="file" id="imageInput" accept="image/*" />
+        </label>
+        <div class="slider-container">
+          <input
+            class="slider"
+            type="range"
+            id="slider"
+            step="1"
+            min="1"
+            max="100">
+          <h3 id="sliderText" style="width: 2.5rem;">50%</h3>
+        </div>
       </div>
-      <img id="test" src="" />
-      <canvas id="myCanvas" style="display: none"></canvas>
-    </div>
-    <footer>&copy;Andrew Gardner 2024</footer>
+        <button id="convertButton" disabled="true">convert</button>
+        <img id="test" src="" />
+        <canvas id="myCanvas" style="display: none"></canvas>
+      </article>
+      <aside>
+        <div class="result" id="result">
+        
+        </div>
+      </aside>
+    </section>
+    <footer>
+      &VeryThinSpace;
+      <h2 style="display: inline">&#9400;</h2>
+      Andrew Gardner 2024
+    </footer>
   </body>
   <script src="app.js"></script>
 </html>
