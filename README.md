@@ -5,7 +5,7 @@
 This is a web application I created for converting images into colourful ASCII art using JavaScript. It allows users to select different ranges of resolution to customize the fidelity of their output.
 
 ## UPDATE (7/3/24)
-Current version is extremely buggy and only works with very small images (~200x200px), and you might need to pray that it doesnt randomly reject your image. (Styling of image is off aswell and you will need to zoom in and out soon (resolution and proper styling is coming))
+Current version is extremely buggy and only works with very small images (~200x200px), and you might need to pray that it doesnt randomly reject your image. (Styling of image is off aswell and you will need to zoom in and out (resolution and proper styling is coming))
 
 ## Preview
 
