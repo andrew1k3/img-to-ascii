@@ -9,7 +9,7 @@ Current version is extremely buggy and only works with very small images (~200x2
 
 ## Preview
 
-You can try out the application [here]([https://example.com](https://html-preview.github.io/?url=https://github.com/andrew1k3/img-to-ascii/blob/main/index.html)).
+You can try out the application [here](https://html-preview.github.io/?url=https://github.com/andrew1k3/img-to-ascii/blob/main/index.html).
 
 ![image](https://github.com/andrew1k3/img-to-ascii/assets/95467716/9c1b3d2a-a79d-4ab3-b664-f3bd828c420b)
 
