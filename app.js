@@ -9,9 +9,13 @@ const slider = document.getElementById("slider");
 const sliderText = document.getElementById("sliderText");
 const result = document.getElementById("result");
 const ctx = canvas.getContext("2d");
+const imageInputBox = document.getElementById("imageInputBox");
+
+let maxStep = 50;
 let image = null;
-let resolution = 0.5;
+let resolution = 0.8;
 let asciiImage = null;
+let lastDrawnImage = "";
 
 class AsciiPixel {
   letterBrightnessArray = [
@@ -45,7 +49,7 @@ class AsciiPixel {
 
   getLetter() {
     return this.letterBrightnessArray[
-      Math.floor(this.brightness / (256 / this.letterBrightnessArray.length))
+      Math.floor((this.brightness / 256) * this.letterBrightnessArray.length)
     ];
   }
 }
@@ -73,10 +77,7 @@ class AsciiImage {
   }
 
   averagePixel(array) {
-    let r,
-      g,
-      b,
-      a = 0;
+    let r, g, b, a = 0;
     array.forEach((pixel) => {
       r += pixel.r / array.length;
       g += pixel.g / array.length;
@@ -86,67 +87,49 @@ class AsciiImage {
     return new AsciiPixel(r, g, b, a);
   }
 
-  // dont care abt res rn
   generateScaledArray() {
     console.log(this.data);
-    let cols = this.width;
-    let rows = this.height;
+    let pixelStep = Math.max(1, Math.floor((1-resolution) * maxStep));
     let asciiPixelArray = this.generateAsciiPixelArray();
-    let emptyArray = [...Array(rows)].map(() => Array(cols).fill(null));
-    for (let i = 0; i < asciiPixelArray.length - 1; i++) {
-      let pixel = asciiPixelArray[i];
-      // console.log(i, pixel, emptyArray[Math.floor(i / rows)][i % cols]);
-      try {
-        emptyArray[Math.floor(i / rows)][i % cols] = pixel;
-      } catch (e) {
-        console.log(e);
+    let out = [];
+    for (let i = 0; i < this.height; i+= pixelStep) {
+      let row = [];
+      for (let j = 0; j < this.width; j+= pixelStep) {
+        let pixel = asciiPixelArray[i * this.width + j];
+        row.push(pixel);
       }
+      out.push(row);
     }
-    return emptyArray;
+    return out;
   }
 
   drawImage() {
+    let fontSize = Math.max(1, Math.floor((1-resolution) * maxStep));
     let scaledArray = this.generateScaledArray();
-    result.innerHTML = "";
-    // console.log(scaledArray);
-    let fontSize = Math.floor((1 / resolution) * 10);
+    let html = "";
     scaledArray.forEach((row) => {
-      let text = "";
       row.forEach((pixel) => {
         if (pixel) {
-          text += `<h4 style='color: rgb(${pixel.r}, ${pixel.g}, ${
-            pixel.b
-          });'>${pixel.getLetter()}</h4>`;
+          html += `<span style='color: rgb(${pixel.r}, ${pixel.g}, ${pixel.b});'>${pixel.getLetter()}</span>`;
         }
       });
-      result.innerHTML += `<span>${text}</span>`;
+      html += "<br/>";
     });
+    result.innerHTML = html;
+    result.style.fontSize = fontSize + "px";
+    lastDrawnImage = imageText.innerText;
   }
 }
 
-// input image
-imageInput.addEventListener("change", () => {
-  image = document.querySelector("input[type=file]").files[0];
-  imageText.innerText = image.name;
-  buttonEle.disabled = false;
-});
-
-// slider resolution
-slider.addEventListener("input", (event) => {
-  sliderText.innerHTML = event.target.value + "%";
-  resolution = event.target.value / 100;
-  if (asciiImage) {
-    asciiImage.drawImage;
-  }
-});
-
-// button constructs image into cavas and reads data off canvas
-buttonEle.addEventListener("click", () => {
+function generateImage() {
   if (image) {
+    if (lastDrawnImage === imageText.innerText) {
+      asciiImage.drawImage();
+      return;
+    }
     var reader = new FileReader();
     reader.onload = function () {
       const img = new Image();
-      test.src = reader.result;
       img.src = reader.result;
 
       img.onload = function () {
@@ -166,4 +149,32 @@ buttonEle.addEventListener("click", () => {
     };
     reader.readAsDataURL(image);
   }
+}
+
+// input image
+imageInput.addEventListener("change", () => {
+  image = imageInput.files[0];
+  if (image) {
+    const url = URL.createObjectURL(image);
+    console.log(image);
+    imageInputBox.style.backgroundImage = `url(${url})`;
+    imageText.innerText = image.name;
+    buttonEle.disabled = false;
+  }
+});
+
+// slider resolution
+slider.addEventListener("input", (event) => {
+  
+  sliderText.innerHTML = event.target.value + "%";
+  resolution = event.target.value / 100;
+  if (lastDrawnImage === imageText.innerText) {
+    generateImage();
+  }
+  console.log(resolution);
+});
+
+// button constructs image into canvas and reads data off canvas
+buttonEle.addEventListener("click", () => {
+  generateImage();
 });

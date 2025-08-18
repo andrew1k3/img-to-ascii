@@ -43,6 +43,10 @@ aside {
 }
 
 label {
+  background-image: none;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode:difference;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
@@ -51,6 +55,14 @@ label {
   justify-content: center;
   border: 1px white solid;
   transition: padding 0.25s ease, color 0.3s ease;
+}
+.test {
+  display: inline;
+  font-size: 30px;
+  padding:0px;
+  margin: 0px;
+  line-height: 15px;
+  letter-spacing: -3px;
 }
 
 label:hover {
@@ -70,16 +82,15 @@ input[type="file"] {
   overflow-wrap: normal;
 }
 
-span {
-  display: block;
-  line-height: 0px;
+#result {
+  font-family: "Courier New", monospace;
+  line-height: 1;       /* prevents extra vertical gaps */
+  white-space: pre;     
 }
 
-h4 {
+#result span {
   display: inline;
-  font-weight: 400;
-  font-size: 0.4rem;
-  letter-spacing: -0.05rem;
+  font-family: inherit;
 }
 
 h1 {
@@ -163,6 +174,7 @@ input[type="range"] {
   background: rgb(47, 255, 57);
   border-radius: 1rem;
   margin-left: 3rem;
+  transition: all 1 ease-in-out;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -176,10 +188,12 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: white 0 0 0.5rem;
   height: 2.5rem;
 }
 
 footer {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
+  left: 5px;
 }

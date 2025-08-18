@@ -11,7 +11,7 @@
     <section>
       <article>
         <h1><p>i</p><p>m</p><p>g</p><p>-</p><p>t</p><p>o</p><p>-</p><p>a</p><p>s</p><p>c</p><p>i</p><p>i</p></h1>
-        <label>
+        <label id="imageInputBox">
           <h2>select-image</h2>
           <br />
           <h3 id="imageText">none</h3>
@@ -23,19 +23,19 @@
             type="range"
             id="slider"
             step="1"
-            min="1"
-            max="100">
-          <h3 id="sliderText" style="width: 2.5rem;">50%</h3>
+            min="10"
+            max="100"
+            value="80">
+          <h3 id="sliderText" style="width: 2.5rem;">80%</h3>
         </div>
       </div>
-        <button id="convertButton" disabled="true">convert</button>
-        <img id="test" src="" />
+        <button id="convertButton" disabled="true">
+          convert
+        </button>
         <canvas id="myCanvas" style="display: none"></canvas>
       </article>
       <aside>
-        <div class="result" id="result">
-        
-        </div>
+        <div class="result" id="result"></div>
       </aside>
     </section>
     <footer>
