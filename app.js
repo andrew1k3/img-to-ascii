@@ -1,4 +1,4 @@
-console.log("Andrew Gardner 2024");
+//console.log("Andrew Gardner 2024");
 
 const imageInput = document.getElementById("imageInput");
 const imageText = document.getElementById("imageText");
@@ -18,7 +18,7 @@ let asciiImage = null;
 let lastDrawnImage = "";
 
 class AsciiPixel {
-  letterBrightnessArray = [' ', '`', '.', '-', "'", ':', '_', ',', '^', '=', ';', '>', '<', '+', '!', 'r', 'c', '*', '/', 'z', '?', 's', 'L', 'T', 'v', ')', 'J', '7', '(', '|', 'F', 'i', '{', 'C', '}', 'f', 'I', '3', '1', 't', 'l', 'u', '[', 'n', 'e', 'o', 'Z', '5', 'Y', 'x', 'j', 'y', 'a', ']', '2', 'E', 'S', 'w', 'q', 'k', 'P', '6', 'h', '9', 'd', '4', 'V', 'p', 'O', 'G', 'b', 'U', 'A', 'K', 'X', 'H', 'm', '8', 'R', 'D', '#', '$', 'B', 'g', '0', 'M', 'N', 'W', 'Q', '%', '&', '@'];
+  letterBrightnessArray = [' ', '`', '.', '-', "'", ':', '_', ',', '^', '=', ';', '>', '<', '+', '!', 'r', 'c', '*', '/', 'z', '?', 's', 'L', 'T', 'v', ')', 'J', '7', '(', '|', 'F', 'i', '{', 'C', '}', 'f', 'I', '3', '1', 't', 'l', 'u', '[', 'n', 'e', 'o', 'Z', '5', 'Y', 'x', 'j', 'y', 'a', ']', '2', 'E', 'S', 'w', 'q', 'k', 'P', '6', 'h', '9', 'd', '4', 'V', 'p', 'O', 'G', 'b', 'U', 'A', 'K', 'X', 'H', 'm', '8', 'R', 'D', '$', 'B', 'g', '0', 'M', 'N', 'W', 'Q', '%', '&', '@', '#'];
   constructor(r, g, b, a) {
     this.r = r;
     this.g = g;
@@ -30,7 +30,7 @@ class AsciiPixel {
 
   getBrightness() {
     return (
-      (0.2126 * this.r + 0.7152 * this.g + 0.0722 * this.b) * (this.a / 256)
+      (0.2126 * this.r + 0.7152 * this.g + 0.0722 * this.b) * (this.a / 255)
     );
   }
 
@@ -75,7 +75,7 @@ class AsciiImage {
   }
 
   generateScaledArray() {
-    console.log(this.data);
+    //console.log(this.data);
     let pixelStep = Math.max(1, Math.floor((1-resolution) * maxStep));
     let asciiPixelArray = this.generateAsciiPixelArray();
     let out = [];
@@ -143,7 +143,7 @@ imageInput.addEventListener("change", () => {
   image = imageInput.files[0];
   if (image) {
     const url = URL.createObjectURL(image);
-    console.log(image);
+    //console.log(image);
     imageInputBox.style.backgroundImage = `url(${url})`;
     imageText.innerText = image.name;
     buttonEle.disabled = false;
@@ -158,7 +158,7 @@ slider.addEventListener("input", (event) => {
   if (lastDrawnImage === imageText.innerText) {
     generateImage();
   }
-  console.log(resolution);
+  //console.log(resolution);
 });
 
 // button constructs image into canvas and reads data off canvas
