@@ -86,14 +86,8 @@ input[type="file"] {
   font-family: "Courier New", monospace;
   line-height: 1;       /* prevents extra vertical gaps */
   white-space: pre;
-  /* transition: all 0.3s ease; */
   border-color: white;
 }
-
-#result:hover {
-  border: rgb(52, 126, 57);
-}
-
 #result span {
   display: inline;
   font-family: inherit;
