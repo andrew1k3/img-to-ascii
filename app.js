@@ -109,34 +109,38 @@ class AsciiImage {
 }
 
 function generateImage() {
-  if (image) {
-    if (lastDrawnImage === imageText.innerText) {
-      asciiImage.drawImage();
-      return;
-    }
-    var reader = new FileReader();
-    reader.onload = function () {
-      const img = new Image();
-      img.src = reader.result;
-
-      img.onload = function () {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
-
-        let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        asciiImage = new AsciiImage(
-          imageData.data,
-          canvas.width,
-          canvas.height,
-          slider.value
-        );
-        asciiImage.drawImage();
-      };
-    };
-    reader.readAsDataURL(image);
+  if (!image) {
+    alert("Please select an image first.");
+    return;
   }
+  if (lastDrawnImage === imageText.innerText) {
+    asciiImage.drawImage();
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function () {
+    const img = new Image();
+    img.src = reader.result;
+
+    img.onload = function () {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      asciiImage = new AsciiImage(
+        imageData.data,
+        canvas.width,
+        canvas.height,
+        slider.value
+      );
+      asciiImage.drawImage();
+    };
+  };
+  reader.readAsDataURL(image);
 }
+
+
 
 // input image
 imageInput.addEventListener("change", () => {
