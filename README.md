@@ -9,11 +9,43 @@ Current version is extremely buggy and only works with very small images (~200x2
 
 ## Preview
 
-You can try out the application [here](https://html-preview.github.io/?url=https://github.com/andrew1k3/img-to-ascii/blob/main/index.html).
+You can try out the application here:
+- [release](http://img-to-ascii.s3-website-ap-southeast-2.amazonaws.com/)
+- [test](https://html-preview.github.io/?url=https://github.com/andrew1k3/img-to-ascii/blob/main/index.html)
 
 ![image](https://github.com/andrew1k3/img-to-ascii/assets/95467716/70fe9e2d-29e0-40c0-b0cc-c8b16a3bee52)
 
-
+```
+########&##########%@B<@@###
+@@W ` ` .` e########.``  ###
+U   5x]x]`{. %####&   ` .###
+# `  . jySyS! b####   ######
+#w ZL ` ,]-ww  $## .`#######
+#Q `jx-e` .qw-q N5  ########
+##@ 'Y]ESk.`*66`    ########
+###@ SEShSr4  |4   N########
+####V kkh.6hk-`h  `#########
+#####, -/P944,-  . @########
+######d.  L.`9h. / `  CN####
+########5    _4. T-Lz   .&##
+######@<`.???  f   -TLTv` &#
+#######.??????c``q `LTTTTs #
+######( ??zz????-`  LLTTTT  
+###### _??zz???sss  LTLTTTv 
+###### !??zzz??sssL+`TTTTT)`
+#####@ ,??zz????ssLLLLTTTTv 
+######` ?????s?ssssLLLTTTJ? 
+######0 ss?s??ssssLLTLTTTv. 
+#######`TssssssssLLLTTTTT7 #
+######&.`ssssLssLLLLTTTTvT #
+#######$ ssssLLLLLLTTTTTv`-#
+#######@ ;LLLLLLLLTTTTTTJ ##
+########$ sLTLLLTTTTTT)v-}##
+#########  vTTTTTTTTTsz`.###
+##########``sTsvTvTT)L  ####
+##########@  /s   ,)  _#####
+############:` `#>` _N######
+```
 
 ## Technologies Used
 
@@ -22,3 +54,4 @@ You can try out the application [here](https://html-preview.github.io/?url=https
 - JavaScript
 
 Feel free to explore the code and experiment with converting your images into ASCII art!
+
